@@ -14,19 +14,14 @@ import java.io.Serializable;
 @ToString
 @Audited
 @Builder
-@Table(name = "persona")
-public class Persona extends Base implements Serializable {
+@Table(name = "Autor")
+public class Autor extends Base implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "nombre")
+    @Column(name="nombre")
     private String nombre;
     @Column(name = "apellido")
     private String apellido;
-    @Column(name = "dni")
-    private int dni;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_domicilio")
-    private Domicilio domicilio;
 }
-

@@ -2,7 +2,7 @@ package com.example.inicial1;
 
 import com.example.inicial1.entities.Domicilio;
 import com.example.inicial1.entities.Persona;
-import com.example.inicial1.repositories.PersonaRepository;
+import com.example.inicial1.repositories.IPersonaRepository;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +20,7 @@ public class Inicial1Application {
 	private static final Logger logger = LoggerFactory.getLogger(Inicial1Application.class);
 
 	@Autowired
-	private PersonaRepository personaRepository;
+	private IPersonaRepository IPersonaRepository;
 	public static void main(String[] args) {
 		SpringApplication.run(Inicial1Application.class, args);
 
@@ -32,7 +32,7 @@ public class Inicial1Application {
 
 	@Bean
 	@Transactional
-	CommandLineRunner init(PersonaRepository personaRepository) {
+	CommandLineRunner init(IPersonaRepository IPersonaRepository) {
 		return args -> {
 	// Creo un objeto persona
 Persona per1 = Persona.builder().
@@ -45,7 +45,7 @@ Domicilio dom1 = Domicilio.builder().
 
 per1.setDomicilio(dom1);
 
-			personaRepository.save(per1);
+			IPersonaRepository.save(per1);
 
 // Creo otra persona
 			Persona per2 = Persona.builder().
@@ -60,9 +60,9 @@ per1.setDomicilio(dom1);
 
 
 			// Lo grabo a través del repositorio de Spring
-			personaRepository.save(per2);
+			IPersonaRepository.save(per2);
 
-			List<Persona> recuperadas = personaRepository.findAll();
+			List<Persona> recuperadas = IPersonaRepository.findAll();
 			System.out.println(recuperadas);
 
 			logger.info("Detalles de la persona: {}", recuperadas);
@@ -70,7 +70,7 @@ per1.setDomicilio(dom1);
 
 
 
-			Optional<Persona> recuperada = personaRepository.findById(1L);
+			Optional<Persona> recuperada = IPersonaRepository.findById(1L);
 			System.out.println(recuperada);
 
 			logger.info("Detalles de la persona: {}", recuperada);
@@ -78,14 +78,14 @@ per1.setDomicilio(dom1);
 
 			dom1.setCalle("Rodriguezaaaa");
 
-			personaRepository.save(per1);
+			IPersonaRepository.save(per1);
 
 
 
 
 		};
 
-		};
+		}
 
 
 
