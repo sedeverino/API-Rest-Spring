@@ -8,7 +8,7 @@ This project provides an API with the basic CRUD operations for an user to consu
 - JPA for managing persistence
 - Hibernate for auditory
 
-# Soon features
+# Future implementations
 
 - Implement a PostgreSQL database
 - Deploy using Render
