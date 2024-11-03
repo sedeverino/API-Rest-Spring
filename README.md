@@ -1,5 +1,5 @@
 # API REST With Spring boot
-This project provides an API with the basic CRUD operations for an user to consume; implementing design patterns and a little bit of arquithecture. 
+This project provides an API with the basic CRUD operations for a cleint to consume; implementing design patterns and a little bit of arquithecture. 
 
 # You will need
 - Spring Framework v3.3.3
